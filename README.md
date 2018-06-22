@@ -9,7 +9,7 @@ How to build and Deploy:
 
 cd /home/ubuntu/
 sudo git clone https://github.com/vimmis/Bluefox.git
-sudo go get "github.com/codegangsta/negroni"  "github.com/go-sql-driver/mysql" "github.com/gorilla/mux" "github.com/unrolled/render" (to download all relevant packages for code)
+go get "github.com/codegangsta/negroni"  "github.com/go-sql-driver/mysql" "github.com/gorilla/mux" "github.com/unrolled/render" 
 
 2. Run mysql container:
 cd Bluefox
