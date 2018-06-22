@@ -9,15 +9,19 @@ How to build and Deploy:
 
 cd /home/ubuntu/
 sudo git clone https://github.com/vimmis/Bluefox.git
+
 sudo chmod -R 777 Bluefox
+
 go get "github.com/codegangsta/negroni"  "github.com/go-sql-driver/mysql" "github.com/gorilla/mux" "github.com/unrolled/render" 
 
 2. Run mysql container:
 cd Bluefox
+
 sudo docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5.5
 
 3. On above success, run below to first build and then run weather app(on port 3000)
 sudo docker build -t weatherapp .
+
 sudo docker run --link mysql:mysql -e  MYSQL_USR="root" -e  MYSQL_PWD="root" -e  MYSQL_DB="weatherapp" -e  MYSQL_TBL="weather" -p 3000:3000 -d weatherapp
 
 4. Run sample Tests:
