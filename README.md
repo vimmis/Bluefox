@@ -1,7 +1,7 @@
 The weather app is built in GO and MYSQL_DB
-The application folder has necessary libraries and packages, hence no need to download GO and install things.
 
-As the code base is in GO, installation and configuration of Go is required. --Done on the ec2 instance for the project folder path : /home/ubuntu/Bluefox
+As the codebase is in GO, installation and configuration of Go is required. 
+I have installed and configured GO on the ec2 instance for the project folder path : /home/ubuntu/Bluefox
 
 How to build and Deploy:
 
@@ -9,6 +9,7 @@ How to build and Deploy:
 
 cd /home/ubuntu/
 sudo git clone https://github.com/vimmis/Bluefox.git
+sudo chmod -R 777 Bluefox
 go get "github.com/codegangsta/negroni"  "github.com/go-sql-driver/mysql" "github.com/gorilla/mux" "github.com/unrolled/render" 
 
 2. Run mysql container:
