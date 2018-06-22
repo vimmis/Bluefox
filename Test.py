@@ -9,7 +9,7 @@ total= 0
 #Test Ping Request
 print("Runnung Test Ping Request...")
 total=total+1
-response = requests.get('http://192.168.99.100:3000/pingLB')
+response = requests.get('http://localhost:3000/pingLB')
 json_data1 = json.loads(response.text)
 print("Response: \n")
 print(json_data1["Ping"])
@@ -24,7 +24,7 @@ print("-----------------------------------------------\n")
 #Test Add Measurement Request-Sucess1
 print("Running Test Add Measurement Request-Sucess1..." )
 total=total+1
-url = "http://192.168.99.100:3000/add_temperature_measurement"
+url = "http://localhost:3000/add_temperature_measurement"
 
 payload = "{\n\t\"Timestamp\":\"2018-05-16T15:04:05.000Z\",\n\t\"Tempt\":\"5.2\"\n}"
 headers = {
@@ -111,7 +111,7 @@ else:
 #Test Get Measurement Range Request-Success
 print("Running Test Get Measurement Range Request-Success...")
 total=total+1
-url = "http://192.168.99.100:3000/get_temperature_measurements"
+url = "http://localhost:3000/get_temperature_measurements"
 querystring = {"start_timestamp":"2018-04-10T15:04:05.000Z","stop_timestamp":"2018-06-10T15:04:05.000Z"} #includes the two added measurement
 headers = {
     'Cache-Control': "no-cache",
@@ -181,7 +181,7 @@ print("-----------------------------------------------\n")
 #Test Get Average Temp Range Request-Sucess
 print("Running Test Get Average Temp Range Request-Sucess...")
 total=total+1	
-url = "http://192.168.99.100:3000/get_average_temperature"
+url = "http://localhost:3000/get_average_temperature"
 querystring = {"start_timestamp":"2018-03-15T15:04:05.000Z","stop_timestamp":"2018-10-20T15:04:05.000Z"}#all inclusive
 response = requests.request("GET", url, headers=headers, params=querystring)
 print("Response: \n")
@@ -199,7 +199,7 @@ print("-----------------------------------------------\n")
 #Test Get Average Temp Range Request-Out-of-range
 print("Running Test Get Average Temp Range Request-Out-of-range...")
 total=total+1	
-url = "http://192.168.99.100:3000/get_average_temperature"
+url = "http://localhost:3000/get_average_temperature"
 querystring = {"start_timestamp":"2012-05-15T15:04:05.000Z","stop_timestamp":"2012-05-20T15:04:05.000Z"}
 response = requests.request("GET", url, headers=headers, params=querystring)
 print("Response: \n")
